@@ -1,7 +1,7 @@
-import 'package:fdtcg_multi_screen_navigating_meals_app/categories.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fdtcg_multi_screen_navigating_meals_app/screens/categories.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
