@@ -2,9 +2,22 @@ import 'package:flutter/material.dart';
 
 import 'package:fdtcg_multi_screen_navigating_meals_app/data/dummy_data.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/widgets/category_grid_item.dart';
+import 'package:fdtcg_multi_screen_navigating_meals_app/screens/meals.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
+
+  void _selectCategory(BuildContext context) {
+    // Navigator.push(context, route);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => const MealsScreen(
+          tile: 'Some title',
+          meals: [],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +42,12 @@ class CategoriesScreen extends StatelessWidget {
         //     .toList(),
         children: [
           for (final category in availableCategories)
-            CategoryGridItem(category: category),
+            CategoryGridItem(
+              category: category,
+              onSelectCategory: () {
+                _selectCategory(context);
+              },
+            ),
         ],
       ),
     );
