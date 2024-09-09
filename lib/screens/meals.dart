@@ -1,3 +1,4 @@
+import 'package:fdtcg_multi_screen_navigating_meals_app/screens/meal_details.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,16 @@ class MealsScreen extends StatelessWidget {
 
   final String tile;
   final List<Meal> meals;
+
+  void selectMeal(BuildContext context, Meal meal) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => MealDetailsScreen(
+          meal: meal,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +54,9 @@ class MealsScreen extends StatelessWidget {
         itemCount: meals.length,
         itemBuilder: (ctx, index) => MealItem(
           meal: meals[index],
+          onSelectMeal: (meal) {
+            selectMeal(context, meal);
+          },
         ),
       );
     }
