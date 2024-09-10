@@ -7,11 +7,11 @@ import 'package:fdtcg_multi_screen_navigating_meals_app/models/meal.dart';
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
-    required this.tile,
+    this.tile,
     required this.meals,
   });
 
-  final String tile;
+  final String? tile;
   final List<Meal> meals;
 
   void selectMeal(BuildContext context, Meal meal) {
@@ -61,9 +61,13 @@ class MealsScreen extends StatelessWidget {
       );
     }
 
+    if (tile == null) {
+      return content;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(tile),
+        title: Text(tile!),
       ),
       body: content,
     );
