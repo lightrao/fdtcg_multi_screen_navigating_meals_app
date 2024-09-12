@@ -22,7 +22,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
   var _glutenFreeFilterSet = false;
   var _lactoseFreeFilterSet = false;
   var _vegetarianFilterSet = false;
-  var _veganFreeFilterSet = false;
+  var _veganFilterSet = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +40,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
       //     );
       //   }
       // }),
-      body: WillPopScope(
-        onWillPop: () async {
+      body: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (bool didPop, dynamic result) {
+          if (didPop) return;
           Navigator.of(context).pop({
             Filter.glutenFree: _glutenFreeFilterSet,
             Filter.lactoseFree: _lactoseFreeFilterSet,
             Filter.vegetarian: _vegetarianFilterSet,
-            Filter.vegan: _veganFreeFilterSet,
+            Filter.vegan: _veganFilterSet,
           });
-          return false; // we don't wanna pop twice, return a future false
         },
         child: Column(
           children: [
@@ -128,10 +129,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ),
             ),
             SwitchListTile(
-              value: _veganFreeFilterSet,
+              value: _veganFilterSet,
               onChanged: (isChecked) {
                 setState(() {
-                  _veganFreeFilterSet = isChecked;
+                  _veganFilterSet = isChecked;
                 });
               },
               title: Text(
