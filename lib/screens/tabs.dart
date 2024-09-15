@@ -1,4 +1,4 @@
-import 'package:fdtcg_multi_screen_navigating_meals_app/data/dummy_data.dart';
+// import 'package:fdtcg_multi_screen_navigating_meals_app/data/dummy_data.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/models/meal.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/screens/categories.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/screens/filters.dart';
