@@ -8,6 +8,7 @@ import 'package:fdtcg_multi_screen_navigating_meals_app/widgets/main_drawer.dart
 import 'package:fdtcg_multi_screen_navigating_meals_app/providers/meals_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fdtcg_multi_screen_navigating_meals_app/providers/filters_provider.dart';
 
 const kInitialFilters = {
   Filter.glutenFree: false,
