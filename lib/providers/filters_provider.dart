@@ -1,3 +1,4 @@
+import 'package:fdtcg_multi_screen_navigating_meals_app/models/meal.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/providers/meals_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,7 +36,7 @@ final filtersProvider =
   (ref) => FiltersNotifier(),
 );
 
-final filteredMealsProvider = Provider((ref) {
+final filteredMealsProvider = Provider<List<Meal>>((ref) {
   final meals = ref.watch(mealsProvider);
   final activeFilters = ref.watch(filtersProvider);
 
