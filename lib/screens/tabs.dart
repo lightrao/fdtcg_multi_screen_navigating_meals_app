@@ -10,13 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fdtcg_multi_screen_navigating_meals_app/providers/filters_provider.dart';
 
-const kInitialFilters = {
-  Filter.glutenFree: false,
-  Filter.lactoseFree: false,
-  Filter.vegetarian: false,
-  Filter.vegan: false,
-};
-
 class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
 
